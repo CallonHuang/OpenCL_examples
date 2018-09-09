@@ -145,7 +145,7 @@ int main(int argc, char** argv)
     // Create the compute program from the source buffer
     //
 	#ifdef KERNEL_WITH_SOURCE
-    printf("Now create program with source...\n");
+    	printf("Now create program with source...\n");
 	program = clCreateProgramWithSource(context, 1, (const char **) & KernelSource, NULL, &err);
 	#else
 	FILE* binaryFile;
@@ -162,6 +162,7 @@ int main(int argc, char** argv)
 	if (size <= 0)
 	{
 		printf("file size[%d] is err!\n", (int)size);
+		fclose(binaryFile);
 		return EXIT_FAILURE;
 	}
 	else
@@ -171,6 +172,7 @@ int main(int argc, char** argv)
 	if (!binary)
 	{
 		printf("malloc is err!\n");
+		fclose(binaryFile);
 		return EXIT_FAILURE;
 	}
 	fread(binary, sizeof(unsigned char), size, binaryFile);
@@ -179,7 +181,7 @@ int main(int argc, char** argv)
 	program = clCreateProgramWithBinary(context, 1, &device_id, &size, (const unsigned char **) & binary, NULL, &err);
 	free(binary);
 	#endif
-	if (!program)
+    if (!program)
     {
         printf("Error: Failed to create compute program!\n");
         return EXIT_FAILURE;
