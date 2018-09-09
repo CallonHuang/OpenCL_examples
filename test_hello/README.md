@@ -1,7 +1,6 @@
 # OpenCL first example
 
 The example can help u know how to compile OpenCL and it's kernel file 
-Function: square
 
 ## 1.Kernel with source
 This is equal to use api clCreateProgramWithSource.
