@@ -22,4 +22,5 @@ It helps me to know how to use OpenCL, and OpenCL code's constitution, and I rea
 
 ## Reference
 Apple's example code.
+
 Stackoverflow's answers.
